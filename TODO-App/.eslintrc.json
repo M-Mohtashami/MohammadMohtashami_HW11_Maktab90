@@ -16,6 +16,7 @@
       {
         "singleQuote": true
       }
-    ]
+    ],
+    "no-unused-vars": "warn"
   }
 }
