@@ -14,7 +14,7 @@
     "prettier/prettier": [
       "warn",
       {
-        "singleQuotes": true
+        "singleQuote": true
       }
     ]
   }
