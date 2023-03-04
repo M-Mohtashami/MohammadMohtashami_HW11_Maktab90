@@ -4,6 +4,6 @@ import jsconfigPaths from "vite-jsconfig-paths";
 export default defineConfig({
   plugins: [jsconfigPaths()],
   server: {
-    port: 3001,
+    port: 8000,
   },
 });
