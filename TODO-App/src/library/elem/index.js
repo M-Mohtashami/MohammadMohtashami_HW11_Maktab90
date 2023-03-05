@@ -1,4 +1,4 @@
-export function createElement({ element, children, eventListener, ...rest }) {
+export function El({ element, children, eventListener, ...rest }) {
   const elem = document.createElement(element);
   for (const attr in rest) {
     elem[attr] = rest[attr];
