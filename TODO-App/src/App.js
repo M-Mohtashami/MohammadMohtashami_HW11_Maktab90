@@ -6,6 +6,6 @@ export const app = () => {
   return El({
     element: 'div',
     className: 'relative w-full h-full',
-    children: [navbar(), tableOfContents()],
+    children: [Drawer(Form()), navbar(), tableOfContents()],
   });
 };

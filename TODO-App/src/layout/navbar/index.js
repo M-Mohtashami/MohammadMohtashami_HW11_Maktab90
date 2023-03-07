@@ -1,6 +1,6 @@
-import { El } from '@/library';
+import { El, showModal } from '@/library';
 import { plus, filter, list, search } from '@/assets';
-import { Button } from '@/component/Button/index';
+import { Button } from '@/component';
 
 export const navbar = () => {
   return El({
@@ -54,6 +54,12 @@ export const navbar = () => {
           Button({
             id: 'add',
             className: '[&_svg]:fill-white my-auto',
+            eventListener: [
+              {
+                event: 'click',
+                callback: showModal,
+              },
+            ],
             innerHTML: plus,
           }),
         ],

@@ -1,11 +1,18 @@
-import { El } from '@/library';
+import { El, handleForm } from '@/library';
 import { Textfield, Formoption, Button } from '@/component';
 
 export const Form = () => {
   return El({
     element: 'form',
+    id: 'add-form',
     className:
       'w-[500px] h-auto border rounded-sm border-gray-200 shadow-sm bg-white relative',
+    eventListener: [
+      {
+        event: 'submit',
+        callback: handleForm,
+      },
+    ],
     children: [
       El({
         element: 'div',
@@ -48,7 +55,7 @@ export const Form = () => {
               }),
               El({
                 element: 'select',
-                name: 'Status',
+                name: 'status',
                 className:
                   'w-1/3 text-gray-500 px-1 py-2 outline-none border rounded-md focus:border-2 focus:border-[#6100E8]',
                 children: [
@@ -76,6 +83,7 @@ export const Form = () => {
           }),
           El({
             element: 'textarea',
+            name: 'details',
             className:
               'w-full text-gray-500 my-4 px-1 py-2 outline-none border rounded-md focus:border-2 focus:border-[#6100E8]',
             placeholder: 'Ditails (optional)',
@@ -90,12 +98,14 @@ export const Form = () => {
         children: [
           Button({
             type: 'submit',
+            id: 'save-btn',
             className:
               'border-2 border-blue-600 bg-blue-600 text-white py-2 px-4 rounded-md',
             innerText: 'save',
           }),
           Button({
             type: 'submit',
+            id: 'cancel-btn',
             className:
               'border-2 border-blue-600 text-blue-600 py-2 px-4 rounded-md',
             innerText: 'cancel',
