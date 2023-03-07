@@ -1,4 +1,4 @@
-export function El({ element, children, eventListener, ...rest }) {
+export function El({ element, children, eventListener, dataset, ...rest }) {
   const elem = document.createElement(element);
   for (const attr in rest) {
     elem[attr] = rest[attr];
@@ -10,6 +10,11 @@ export function El({ element, children, eventListener, ...rest }) {
   }
   if (eventListener) {
     eventListener.map((el) => elem.addEventListener(el.event, el.callback));
+  }
+  if (dataset) {
+    for (const key in dataset) {
+      elem.dataset[key] = dataset[key];
+    }
   }
   return elem;
 }

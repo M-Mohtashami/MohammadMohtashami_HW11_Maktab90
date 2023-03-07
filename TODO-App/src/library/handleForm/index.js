@@ -1,4 +1,4 @@
-import { hideModal, addTask } from '@/library';
+import { hideModal, addTask, renderUi } from '@/library';
 let status;
 export const handleForm = (e) => {
   e.preventDefault();
@@ -23,6 +23,7 @@ export const handleForm = (e) => {
           date: e.target.taskDate.value,
           details: e.target.details.value,
         });
+        renderUi();
         break;
     }
   }

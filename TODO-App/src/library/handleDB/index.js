@@ -11,6 +11,11 @@ export const DB = {
     this.ToDoDB.push(item);
     this.setDB();
   },
+  deleteItem(id) {
+    if (this.getDB()) this.ToDoDB = this.getDB();
+    this.ToDoDB = this.ToDoDB.filter((item) => item.id !== id);
+    this.setDB();
+  },
   findItem(id) {
     return this.getDB().find((item) => item.id === id);
   },
