@@ -1,7 +1,11 @@
-import { navbar, tableOfContents, Form } from '@/layout';
-import { El, renderUi } from '@/library';
 import { Drawer } from '@/component';
+import { Form, navbar, tableOfContents } from '@/layout';
+import { El, renderUi } from '@/library';
 
+export let isEditing = false;
+export const changeEditingFlag = () => {
+  isEditing = !isEditing;
+};
 export const app = () => {
   return El({
     element: 'div',

@@ -1,5 +1,6 @@
-import { hideModal, addTask, renderUi } from '@/library';
-let status;
+import { hideModal, renderUi, DB, targetId } from '@/library';
+import { isEditing } from '@/App';
+
 export const handleForm = (e) => {
   e.preventDefault();
   console.log(e.submitter.id);
@@ -7,24 +8,27 @@ export const handleForm = (e) => {
 
   if (e.submitter.id === 'cancel-btn') hideModal();
   if (e.submitter.id === 'save-btn') {
-    switch (status) {
-      case 'edit':
-        e.currentTarget.reset();
-        break;
-      case 'view':
-        e.currentTarget.reset();
-        break;
-      default:
-        addTask({
-          id: Date.now(),
-          taskName: e.target.taskName.value,
-          priority: e.target.priority.value,
-          status: e.target.status.value,
-          date: e.target.taskDate.value,
-          details: e.target.details.value,
-        });
-        renderUi();
-        break;
+    console.log(isEditing, targetId);
+    if (isEditing) {
+      DB.updateItem({
+        id: targetId,
+        taskName: e.target.taskName.value,
+        priority: e.target.priority.value,
+        status: e.target.status.value,
+        date: e.target.taskDate.value,
+        details: e.target.details.value,
+      });
+    } else {
+      DB.addItem({
+        id: Date.now(),
+        taskName: e.target.taskName.value,
+        priority: e.target.priority.value,
+        status: e.target.status.value,
+        date: e.target.taskDate.value,
+        details: e.target.details.value,
+      });
     }
+    hideModal();
+    renderUi();
   }
 };

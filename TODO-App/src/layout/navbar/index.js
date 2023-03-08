@@ -1,4 +1,4 @@
-import { El, showModal } from '@/library';
+import { El, showModal, newItem } from '@/library';
 import { plus, filter, list, search } from '@/assets';
 import { Button } from '@/component';
 
@@ -57,7 +57,7 @@ export const navbar = () => {
             eventListener: [
               {
                 event: 'click',
-                callback: showModal,
+                callback: newItem,
               },
             ],
             innerHTML: plus,

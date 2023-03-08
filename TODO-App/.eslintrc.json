@@ -17,6 +17,9 @@
         "singleQuote": true
       }
     ],
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "prefer-const": "off",
+    "no-import-assign": "off",
+    "no-unused-expressions": "warn"
   }
 }

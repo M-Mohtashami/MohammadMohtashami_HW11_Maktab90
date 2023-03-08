@@ -6,3 +6,4 @@ export * from '@/library/handleForm';
 export * from '@/library/addTask';
 export * from '@/library/renderUi';
 export * from '@/library/handleTable';
+export * from '@/library/addNewItem';

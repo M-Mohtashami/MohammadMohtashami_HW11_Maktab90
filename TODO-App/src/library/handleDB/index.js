@@ -20,8 +20,13 @@ export const DB = {
     return this.getDB().find((item) => item.id === id);
   },
   updateItem(newItem) {
-    this.ToDoDB = this.getDB().forEach((item) => {
-      if (item.id === newItem.id) item = newItem;
+    this.ToDoDB = this.getDB();
+    this.ToDoDB = this.ToDoDB.map((item) => {
+      if (item.id === newItem.id) {
+        return newItem;
+      } else {
+        return item;
+      }
     });
     this.setDB(this.ToDoDB);
   },
