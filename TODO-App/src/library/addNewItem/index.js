@@ -1,5 +1,6 @@
 import { showModal } from '@/library';
 import { isEditing, changeEditingFlag } from '@/App';
+
 export const newItem = () => {
   const form = document.getElementById('add-form');
   form.taskName.disabled = false;

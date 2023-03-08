@@ -1,4 +1,4 @@
-import { hideModal, renderUi, DB, targetId } from '@/library';
+import { hideModal, renderUi, DB, targetId, handlePagination } from '@/library';
 import { isEditing } from '@/App';
 
 export const handleForm = (e) => {
@@ -29,6 +29,6 @@ export const handleForm = (e) => {
       });
     }
     hideModal();
-    renderUi();
+    handlePagination();
   }
 };

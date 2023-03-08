@@ -12,10 +12,16 @@ const Status = {
   Doing: 'bg-yellow-300 text-gray-800 ',
   Done: 'bg-green-600 text-gray-50 ',
 };
-export const renderUi = () => {
+export const renderUi = (dataset, startRow, endRow, pageNumber) => {
   const tbody = document.getElementById('tbody');
+  const pageDetails = document.getElementById('rows-details');
+  const page = document.getElementById('page');
   tbody.innerHTML = '';
-  const dataset = DB.getDB();
+  console.log(startRow, endRow);
+  pageDetails.innerText = `${startRow}-${endRow} of ${dataset.length}`;
+  // page.innerText = pageNumber;
+  let conter = 0;
+
   dataset.forEach((item) => {
     const row = El({
       element: 'tr',
@@ -101,6 +107,8 @@ export const renderUi = () => {
         }),
       ],
     });
-    tbody.appendChild(row);
+
+    conter++;
+    if (conter >= startRow && conter <= endRow) tbody.appendChild(row);
   });
 };

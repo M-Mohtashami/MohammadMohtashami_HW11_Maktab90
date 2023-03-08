@@ -1,4 +1,4 @@
-import { DB, renderUi, showModal } from '@/library';
+import { DB, renderUi, showModal, handlePagination } from '@/library';
 import { isEditing, changeEditingFlag } from '@/App';
 
 export let targetId;
@@ -10,7 +10,7 @@ export const handleTable = (e) => {
   targetId = +e.target.closest('[data-id]').dataset.id;
   if (action === 'delete') {
     DB.deleteItem(targetId);
-    renderUi();
+    handlePagination();
   } else if (action === 'view') {
     const form = document.getElementById('add-form');
     const targetItem = DB.findItem(targetId);
