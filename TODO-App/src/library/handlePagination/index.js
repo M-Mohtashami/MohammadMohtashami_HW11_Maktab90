@@ -1,10 +1,21 @@
 import { RpG, totalPages, updatePages } from '@/App';
 import { nextPage, prevPage, DB, renderUi } from '@/library';
 
-export const handlePagination = (searchVal) => {
+export const handlePagination = (
+  searchVal,
+  filter = { priority: 'All', status: 'All', deadline: 'All' }
+) => {
   let db = DB.getDB();
   const pageNumber = +document.getElementById('page').innerText;
 
+  if (filter) {
+    if (filter.priority !== 'All')
+      db = db.filter((item) => item.priority === filter.priority);
+    if (filter.status !== 'All')
+      db = db.filter((item) => item.status === filter.status);
+    if (filter.deadline !== 'All')
+      db = db.filter((item) => item.date <= filter.deadline);
+  }
   if (searchVal) {
     db = db.filter((item) => item.taskName.includes(searchVal));
   }

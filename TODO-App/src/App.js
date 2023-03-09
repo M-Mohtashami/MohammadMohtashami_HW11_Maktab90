@@ -1,5 +1,11 @@
 import { Drawer } from '@/component';
-import { Form, navbar, tableOfContents, pagination } from '@/layout';
+import {
+  Form,
+  navbar,
+  tableOfContents,
+  pagination,
+  filterSection,
+} from '@/layout';
 import { El, handlePagination, DB } from '@/library';
 
 export let isEditing = false;
@@ -22,6 +28,12 @@ export const app = () => {
   return El({
     element: 'div',
     className: 'relative w-full h-full',
-    children: [Drawer(Form()), navbar(), tableOfContents(), pagination()],
+    children: [
+      Drawer(Form()),
+      navbar(),
+      filterSection(),
+      tableOfContents(),
+      pagination(),
+    ],
   });
 };

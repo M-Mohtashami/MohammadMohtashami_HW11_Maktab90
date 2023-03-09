@@ -1,6 +1,7 @@
 import { El, searchHandler, newItem } from '@/library';
 import { plus, filter, list, search } from '@/assets';
 import { Button } from '@/component';
+import { filterSection } from '@/layout';
 
 export const navbar = () => {
   return El({
@@ -56,6 +57,11 @@ export const navbar = () => {
             id: 'filter',
             className: '[&_svg]:fill-white my-auto',
             innerHTML: filter,
+            onclick: () => {
+              const filterSec = document.getElementById('filterSec');
+              filterSec.classList.remove('scale-0');
+              filterSec.classList.add('scale-100');
+            },
           }),
           Button({
             id: 'add',
