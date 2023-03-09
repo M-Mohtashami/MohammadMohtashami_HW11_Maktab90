@@ -1,4 +1,4 @@
-import { El, showModal, newItem } from '@/library';
+import { El, searchHandler, newItem } from '@/library';
 import { plus, filter, list, search } from '@/assets';
 import { Button } from '@/component';
 
@@ -40,6 +40,12 @@ export const navbar = () => {
               El({
                 element: 'input',
                 id: 'search',
+                eventListener: [
+                  {
+                    event: 'keyup',
+                    callback: searchHandler,
+                  },
+                ],
                 className:
                   'bg-transparent focus:border-none focus:outline-none text-white',
                 placeholder: 'search',

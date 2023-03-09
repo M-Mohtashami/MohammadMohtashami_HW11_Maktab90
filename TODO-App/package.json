@@ -25,6 +25,8 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "@majidh1/jalalidatepicker": "^0.9.3",
+    "persian-datepicker": "^0.5.11",
     "vite-jsconfig-paths": "^2.0.1"
   }
 }

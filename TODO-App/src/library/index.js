@@ -9,3 +9,4 @@ export * from '@/library/handleTable';
 export * from '@/library/addNewItem';
 export * from '@/library/pagination';
 export * from '@/library/handlePagination';
+export * from '@/library/searchHandler';

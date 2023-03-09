@@ -1,9 +1,13 @@
 import { RpG, totalPages, updatePages } from '@/App';
 import { nextPage, prevPage, DB, renderUi } from '@/library';
 
-export const handlePagination = () => {
-  const db = DB.getDB();
+export const handlePagination = (searchVal) => {
+  let db = DB.getDB();
   const pageNumber = +document.getElementById('page').innerText;
+
+  if (searchVal) {
+    db = db.filter((item) => item.taskName.includes(searchVal));
+  }
   let rpg = RpG;
   let startRow = 1;
   let endRow = db.length;
