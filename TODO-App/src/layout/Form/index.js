@@ -79,7 +79,7 @@ export const Form = () => {
                 element: 'input',
                 className:
                   'text-gray-500 px-1 py-2 outline-none border rounded-md focus:border-2 focus:border-[#6100E8]',
-                value: `${new Date().toLocaleString()}`,
+                value: `YY/MM/DD`,
                 id: 'task-date',
                 name: 'taskDate',
                 type: 'text',
